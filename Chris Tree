@@ -1,0 +1,28 @@
+package com.company;
+/* Programmer: Dan-Thu Nguyen
+Date: 8/30/2021
+Title: Task 1
+Description: Write a program that produces images of the Christmas trees
+ */
+public class ChrisTree {
+    public static void main(String[] args) {
+        // write your code here
+        final int segment = 3;
+        final int height = 4;
+        for (int i = 1; i <= segment; i++) { //this determines the segments
+            for (int x = 1; x <= height; x++) { //this determines the heights
+                for (int k = 1; k <= (segment + height) - x - i; k++) { //as k increases, the spaces decreases
+                    System.out.print(" "); //included space so that the stars can be push into the middle
+                }
+                for (int j = 1; j <= (2 * i + 2 * x) - 3 ; j++) { //as j increases, the stars will also increases
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
+        }
+        //the base, manually did it since there's no pattern
+        System.out.println("     *");
+        System.out.println("     *");
+        System.out.println("  *******");
+    }
+}
