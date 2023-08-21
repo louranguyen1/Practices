@@ -1,6 +1,6 @@
 //find perfect sums
 
-public class MoreMethodUsage1 {
+public class PerfectSum {
     public static void main (String args[]) {
         for (int i = 2; i <= 1000; i++) {
             if (perfect(i)) {
