@@ -1,8 +1,8 @@
-package com.company;
+//enter 2 integers to find all the even numbers between them
+
 import java.util.Scanner;
 public class EvenOddBetween {
     public static void main(String[] args) {
-        //enter 2 integers to find all the even numbers between them
         Scanner input = new Scanner(System.in);
         int x, y;
         System.out.print("Enter an integer >> ");
