@@ -1,7 +1,6 @@
-package com.company;
+//find perfect sums
 
 public class MoreMethodUsage1 {
-    //find perfect sums
     public static void main (String args[]) {
         for (int i = 2; i <= 1000; i++) {
             if (perfect(i)) {
