@@ -1,4 +1,4 @@
-package com.company;
+//practicing with calling functions
 public class LatternPattern {
 
     public static void main(String[] args) {
