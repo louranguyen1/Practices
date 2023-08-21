@@ -1,8 +1,7 @@
-package com.company;
+//Enter scores and calculate max, min, and average
 import java.util.Scanner;
 public class Scores {
     public static void main(String[] args) {
-        //Enter scores and calculate max, min, and average
         int number, sum = 0, total = 1, max = 0, min = 10;
         Scanner input = new Scanner(System.in);
         System.out.print("Enter a score >> ");
