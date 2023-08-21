@@ -1,11 +1,12 @@
-package com.company;
 import java.util.Scanner;
 public class StringLength {
+    
     /*
     1) ask user to enter in their name
     2) find the first initial and length of string
     3) ask yes to continue or no to stop
      */
+    
     public static void main(String args[]) {
         Scanner input = new Scanner(System.in);
         char response;
