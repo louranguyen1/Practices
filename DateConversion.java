@@ -1,7 +1,7 @@
-package com.company;
+//convert date from improper format to proper format
+
 import java.util.Scanner;
 public class DateConversion {
-    //convert date from improper format to proper format
     public static void main(String args[]) {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter date to be converted (month day, year): ");
