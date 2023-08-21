@@ -1,6 +1,6 @@
 //ask user to enter inches, then convert to feet and yards
 import java.util.Scanner;
-public class MoreMethodUsage {
+public class MsConversion {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int inches;
