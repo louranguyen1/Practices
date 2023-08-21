@@ -1,4 +1,5 @@
-package com.company;
+//practices
+
 public class forPattern1 {
     public static void main(String[] args) {
         //000111222333444555666777888999
