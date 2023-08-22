@@ -1,0 +1,44 @@
+package com.company;
+
+/* Programmer: Dan-Thu Nguyen
+Date: 10/4/2021
+Title: arrayGap
+Description: enter an array and calculate the gap between every 2 numbers
+ */
+
+import java.util.Arrays;
+import java.lang.Math;
+import java.util.Scanner;
+public class arrayGap {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter number of elements in an array: ");
+        int numberOfElements = input.nextInt();
+
+        int count = 0;
+        int[] array = new int[numberOfElements];
+        int i = 0;
+        System.out.print("Enter an element of the array one by one: ");
+        for (i = 0; i < numberOfElements; i++) {
+            int element = input.nextInt();
+            array[i] = element;
+            count++;
+        }
+        System.out.println("The array is: " + Arrays.toString(array));
+        minGap(array);
+    }
+
+    public static int minGap(int[] array) {
+        int result = 0;
+        if (array.length >= 2) {
+            for (int i = 1; i < array.length; i++) {
+                result = array[i] - array[i - 1];
+                System.out.println("Gap " + i + " is " + Math.abs(result));
+            }
+        }
+        else {
+            System.out.println("0");
+        }
+        return result;
+    }
+}

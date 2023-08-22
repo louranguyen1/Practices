@@ -1,0 +1,46 @@
+package com.company;
+//Description: print out an array filled with parks and compare the lengths
+public class Park {
+    public String ParkName;
+    public int ParkID;
+    public String ParkShape;
+    private double ParkLength;
+
+    public Park(String name, int id, String ParkShape, double length) {
+        ParkName = name;
+        ParkID = id;
+        ParkLength = length;
+        if (ParkShape=="Circle" || ParkShape == "Square")
+            this.ParkShape = ParkShape;
+        else {
+            System.out.print("Shape is invalid.");
+        }
+    }
+    public String ParkNameGetter() {
+        return ParkName;
+    }
+    public int ParkIDGetter() {
+        return ParkID;
+    }
+    public double ParkLengthGetter() {
+        return ParkLength;
+    }
+
+    public static void main(String[] args) {
+        Park ParkInfo = new Park("CSC1302", 65, "Circle", 5);
+        Park ParkInfo1 = new Park("CSC1302", 65 + 3, "Square", 6);
+        Park ParkInfo2 = new Park("CSC", 45 + 11, "Circle", 7);
+        Park ParkInfo3 = new Park("CSC1", 25, "Square", 2);
+        Park ParkInfo4 = new Park("CSC13", 45, "Circle", 3);
+        Park[] ParkArray = {ParkInfo, ParkInfo1, ParkInfo2, ParkInfo3, ParkInfo4};
+
+        int max = 0;
+        for (int i = 0; i < ParkArray.length; i++) {
+            if (ParkArray[i].ParkLengthGetter() > ParkArray[max].ParkLengthGetter()) {
+                max = i;
+            }
+        }
+        System.out.println("The largest park is:");
+        System.out.println("Park name: " + ParkArray[max].ParkNameGetter() + ". ID: " + ParkArray[max].ParkIDGetter() + ". Shape: " + ParkArray[max].ParkShape + " Length: " + ParkArray[max].ParkLengthGetter() + ".");
+    }
+}

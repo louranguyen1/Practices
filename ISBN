@@ -1,0 +1,78 @@
+package com.company;
+
+/* Programmer: Dan-Thu Nguyen
+Date: 9/26/2021
+Title: Task 2
+Description: ISBN class that represents ISBN-10 numbers for books
+ */
+ 
+import java.util.Scanner;
+public class ISBN {
+    public ISBN() {}        //make this public so other files can import this constructor
+    private String digits;
+    private String checkSymbol;
+
+    //constructs a new ISBN with the given fields
+    public ISBN(String digits, String checkSymbol) {
+        this.digits = digits;
+        this.checkSymbol = checkSymbol;
+    }
+    // getter/accessors that returns the fields' values
+    public String getDigits() {
+        return digits;
+    }
+    public String getCheckSymbol() {
+        return checkSymbol;
+    }
+
+    public boolean isValid() {
+        int sum = 0;
+        String symbol;
+
+        if (digits.length() != 9) {             //check to make sure that the entered value is equal to 9 digits
+            return false;
+        }
+        int digit = Integer.parseInt(digits);   //converts string to integer
+        for (int i = 9; i > 0; i--) {           //i starts with 9 because by doing digit % 10, it's calculating the last number to the first number
+            int number = digit % 10;            //getting the last digit
+            sum += i * number;                  //multiply the last digit by i and add them up
+            digit /= 10;                        //reducing the digit by 1 so when the loop starts over again, the last digit wont be the same
+        }
+
+        int check = sum % 11;
+        if (check == 10) {                      //if sum % 11 is equal to 10, then it should print X
+            symbol = "X";
+        }
+        else {                                  //if not then it should print the result of (sum % 11)
+            symbol = "" + check;
+        }
+
+        if (symbol.equals(checkSymbol)) {       //check if the symbol is equal to the user input for the symbol
+            return true;
+        }
+        else {                                  //returns false if the given user input aren't equal to the computed input
+            return false;
+        }
+    }
+    // returns the string representation of the ISBN
+    // ISBN should be printed in correct format eg: 0-13-394302-X.
+    public String toString() {
+        return digits.charAt(0) + "-" + digits.substring(1, 4) + "-" + digits.substring(4) + "-" + checkSymbol;
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter ISBN number: ");                //ask for user inputs
+        String digits = input.nextLine();                       //ex: 054501022
+        System.out.print("Enter ISBN check symbol: ");          //ex: 5 or X
+        String checkSymbol = input.nextLine();
+
+        ISBN ISBNClient = new ISBN(digits, checkSymbol);        //call on public class ISBN
+        if (ISBNClient.isValid()) {                             //check to see if it's valid, if it's true then it will run this line
+            System.out.println(ISBNClient + " is a valid ISBN");
+        }
+        else {                                                  //if anything is false then it will run this line
+            System.out.println(ISBNClient + " is not a valid ISBN");
+        }
+    }
+}

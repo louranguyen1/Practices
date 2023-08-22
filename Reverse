@@ -1,0 +1,43 @@
+package com.company;
+
+/* Programmer: Dan-Thu Nguyen
+Date: 9/24/2021
+Title: Task 1
+Description: Reverses every each successive sequence of four values in an array set
+ */
+ 
+import java.util.Arrays;
+import java.util.Scanner;
+public class Reverse {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);          //ask user to enter an array size
+        System.out.print("Enter size of the array: ");
+        int n = scan.nextInt();
+        int numberArray[] = new int[n];                 //set the array size using the user input
+
+        System.out.println("Enter array elements one by one: ");   //ask user to enter the elements in the array
+        for (int i = 0; i < n; ++i) {                   //as long as i is less than the array size
+            numberArray[i] = scan.nextInt();            //assign each user input to an element of numberArray[i]
+        }
+        reverseDigits(numberArray);                     //call method
+    }
+    public static int[] reverseDigits(int[] numberArray) {
+        System.out.println(Arrays.toString(numberArray));       //print out the array before reversing
+        int i;
+        for (i = 0; i <= numberArray.length - 1; i += 4) {      //i starts with 0 and increase by 4 until it hits the array length
+            if ((i + 3) > numberArray.length) {                 //i + 3 is equal to the 4th number in the array set
+                break;                                          //if i + 3 is greater than the array length, then it will break the loop
+            }                                                   //this is to prevent the error "ArrayIndexOutOfBounds"
+            if ((i + 3) <= numberArray.length) {                //if i + 3 is less than or equal to array length, loop will run
+                int temp = numberArray[i + 3];                  //swap 1st and 4th digits
+                numberArray[i + 3] = numberArray[i];
+                numberArray[i] = temp;
+                int temp1 = numberArray[i + 2];                 //swap 2nd and 3rd digits
+                numberArray[i + 2] = numberArray[i + 1];
+                numberArray[i + 1] = temp1;
+            }
+        }
+        System.out.println(Arrays.toString(numberArray));       //print out the array after the loop
+        return (numberArray);
+    }
+}

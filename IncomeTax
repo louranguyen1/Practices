@@ -1,0 +1,56 @@
+package com.company;
+
+/* Programmer: Dan-Thu Nguyen
+Date: 9/6/2021
+Title: IncomeTax
+Description: Generate a random number of people and ask the user to put in the amount of income for each and the program will display the calculated taxes
+ */
+ 
+import java.util.Random;
+import java.util.Scanner;
+public class IncomeTax {
+    public static void main(String[] args) {
+        Random input = new Random();      //get a random number
+        int randomPeople = 1 + input.nextInt(15);
+        System.out.println("Random number of people in the range of 1-15: " + randomPeople);
+
+        double max = 0;
+        for (int i = 1; i <= randomPeople; i++) {
+            Scanner input1 = new Scanner(System.in);   //ask for user input
+            System.out.print("Enter the amount of taxable income for each person: $");
+            double taxableIncome = input1.nextDouble();
+
+            double total = 0;
+            if (taxableIncome <= 750) {      //runs if income is less than or equal to 750
+                total = taxableIncome * .01;
+                System.out.println("The tax due is: $" + String.format("%.2f", total));
+            }
+
+            if (750 < taxableIncome & taxableIncome <= 2500) {   //runs if income is more than 750
+                total = 7.50 + taxableIncome * .02;
+                System.out.println("The tax due is: $" + String.format("%.2f", total));
+            }
+
+            if (2500 < taxableIncome & taxableIncome <= 5000) {   //runs if income is more than 2500
+                total = 82.50 + taxableIncome * .04;
+                System.out.println("The tax due is: $" + String.format("%.2f", total));
+            }
+
+            if (5000 < taxableIncome & taxableIncome <= 8000) {   //runs if income is more than 5000
+                total = 142.50 + taxableIncome * .05;
+                System.out.println("The tax due is: $" + String.format("%.2f", total));
+            }
+
+            if (taxableIncome > 8000) {     //runs if income is more than 8000
+                total = 230.00 + taxableIncome * .06;
+                System.out.println("The tax due is: $" + String.format("%.2f", total));
+            }
+
+            if (total > max) {      //find the max value of taxes everytime a loop is completed
+                max = total;
+            }
+            System.out.println();
+        }
+        System.out.println("The highest value of taxes is: $" + max);
+    }
+}

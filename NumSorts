@@ -1,0 +1,88 @@
+package com.company;
+/* Programmer: Dan-Thu Nguyen
+Date: 11/24/2021
+Title: mainSort
+Description: different type of sorts to sort numbers arrays
+ */
+public class Main {
+    public static void main(String[] args) {
+        int[] array1 = {12, 16, 7, 3, 17};
+        System.out.print("Selection sort: \nBefore: ");
+        for (int i = 0; i < array1.length; i++) {
+            System.out.print(array1[i] + " ");
+        }
+        System.out.println();
+        System.out.print("After: ");
+        selectionSort(array1);
+        System.out.println();
+
+        int[] array2 = {18, 14, 16, 3, 2};
+        System.out.print("Bubble sort: \nBefore: ");
+        for (int i = 0; i < array2.length; i++) {
+            System.out.print(array2[i] + " ");
+        }
+        System.out.println();
+        System.out.print("After: ");
+        bubbleSort(array2);
+        System.out.println();
+
+        int[] array3 = {15, 14, 16, 8, 5};
+        System.out.print("Insertion sort: \nBefore: ");
+        for (int i = 0; i < array3.length; i++) {
+            System.out.print(array3[i] + " ");
+        }
+        System.out.println();
+        System.out.print("After: ");
+        insertionSort(array3);
+    }
+    public static void selectionSort(int[] array1) {
+        int size = array1.length;
+        for (int i = 0; i < size - 1; i++) {
+            int minimum = i;
+            for (int j = i + 1; j < size; j++) {
+                if (array1[j] < array1[minimum]) {
+                    minimum = j;
+                }
+            }
+            int temp = array1[minimum];
+            array1[minimum] = array1[i];
+            array1[i] = temp;
+        }
+        for (int i = size - 1; i >= 0; i--) {
+            System.out.print(array1[i] + " ");
+        }
+        System.out.println();
+    }
+    public static void bubbleSort(int[] array2) {
+        int size = array2.length;
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = 0; j < size - i - 1; j++) {
+                if (array2[j] > array2[i]) {
+                    int temp = array2[j];
+                    array2[j] = array2[j + 1];
+                    array2[j + 1] = temp;
+                }
+            }
+        }
+        for (int i = 0; i < size; i++) {
+            System.out.print(array2[i] + " ");
+        }
+        System.out.println();
+    }
+    public static void insertionSort(int[] array3) {
+        int size = array3.length;
+        for (int i = 1; i < size; i++) {
+            int x = array3[i];
+            int j = i - 1;
+            while (j >= 0 && array3[j] > x) {
+                array3[j + 1] = array3[j];
+                j -= 1;
+            }
+            array3[j + 1] = x;
+        }
+        for (int i = 0; i < size; i++) {
+            System.out.print(array3[i] + " ");
+        }
+        System.out.println();
+    }
+}

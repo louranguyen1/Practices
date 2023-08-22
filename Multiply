@@ -1,0 +1,41 @@
+package com.company;
+/* Programmer: Dan-Thu Nguyen
+Date: 9/12/2021
+Title: multiply
+Description: Takes 2 positive integers and use recursive method to multiply them
+ */
+import java.util.Scanner;
+public class multiply {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);                 //ask for user input
+        System.out.print("Enter a positive integer: ");
+        int a = input.nextInt();
+
+        Scanner input1 = new Scanner(System.in);                 //ask for user input
+        System.out.print("Enter another positive integer: ");
+        int b = input1.nextInt();
+
+        int result = multiplication(a, b);                      //assign the method multiplcation to variable "result"
+        System.out.println(a + " times " + b + " = " + result);
+    }
+
+    public static int multiplication(int a, int b) {
+        if (b > 0 && a > 0) {        // to ensure that both are positive integers
+            return a + multiplication(a, b - 1);    //recursive method
+        }
+        else {
+            return 0;
+        }
+        
+        /* quick explanation:
+        here, a will continue to be add by a until b hits 0
+        for example: a = 2, b = 3
+        it'll be a + a + a = 2 + 2 + 2
+        while b - 1 - 1 (- 1) = 3 - 1 - 1 (- 1)
+        once b hits 0, as shown in the ( ) above,
+        the program will stop a from adding itself again and will move onto the else statement
+        */
+        
+    }
+}
+

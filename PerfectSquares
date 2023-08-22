@@ -1,0 +1,54 @@
+package com.company;
+
+/* Programmer: Dan-Thu Nguyen
+Date: 9/12/2021
+Title: writeSquares
+Description: find all of the perfect squares of a number.
+        Even = descending order; Odd = ascending order
+        ex: if it's 5, then find perfect squares of 1, 2, 3, 4, 5
+ */
+ 
+import java.util.Scanner;
+public class PerfectSquares {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);     //ask for user input
+        System.out.print("Enter an integer: ");
+        int n = input.nextInt();
+        int x = 3;          //initialize a new variable for later usage
+
+        writeSquaresEven(n);        //call the methods
+        System.out.print("1 ");     //print 1 manually since every outputs will include 1
+        writeSquaresOdd(n, x);
+    }
+
+    public static void writeSquaresEven(int n) {
+        if (n % 2 == 0 && n > 1) {              //if n is even
+            System.out.print(n * n + " ");      //find perfect squares
+            writeSquaresEven(n - 1);         //recursive method. the program will keep on going until n reaches 0 or 1
+        }
+
+        if (n % 2 != 0 && n > 1) {              //if n is odd
+            System.out.print("");               //find perfect squares
+            writeSquaresEven(n - 1);         //recursive method
+        }
+        /* quick explanation for this method:
+        since n can be odd or even, the first function is to determine whether or not n is even.
+        since this void method is for even number, it will print out the perfect squares for the even numbers
+        for the recursive method, since n is being decreased by 1 each time, it will alternate from even and odd
+        this is the reason that the second function is needed, since if the number is odd,
+        nothing will be printed out and it will move onto the next number, which is an even one.
+         */
+    }
+    public static void writeSquaresOdd(int n, int x) {
+        if (x <= n) {                  //using variable x here so that the method can start from the lowest odd number
+            if (n > 1) {                        //if n is greater than 1
+                System.out.print(x * x + " ");  //find perfect squares
+                writeSquaresOdd(n, x + 2);   //recursive method. the program will keep on going until x almost equal or equal to n
+            }
+            /* quick explanation:
+            in this method, n will stays the same while only x is being increased by 2
+            since the original value of x is 3, this will only print out the odd numbers' perfect squares
+             */
+        }
+    }
+}

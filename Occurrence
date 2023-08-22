@@ -1,0 +1,29 @@
+package com.company;
+import java.util.Scanner;
+
+/* Programmer: Dan-Thu Nguyen
+Date: 11/15/2021
+Title: Occurrences
+Description: Count the number of occurrences of a word in the given string
+ */
+ 
+public class occurrence {
+    public static void main(String[] args) {
+        String sentence = "It is not down on any map true places never are.";
+        System.out.println("String: " + sentence);
+
+        Scanner input = new Scanner(System.in);             //user input
+        System.out.print("Find: ");
+        String word = input.nextLine();
+
+        String[] splitSentence = sentence.split(" ");      //split the sentence by the spaces
+        int count = 0;
+        for (int i = 0; i < splitSentence.length; i++) {
+            if (word.matches(splitSentence[i])) {                //if the word matches the words in the sentence, add 1 to count
+                count++;
+            }
+        }
+        System.out.println("\"" + word + "\" is found " + count + " time(s).");
+    }
+}
+

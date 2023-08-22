@@ -1,0 +1,53 @@
+package com.company;
+/* Programmer: Dan-Thu Nguyen
+Date: 9/6/2021
+Title: RepeatedDigits
+Description: Ask the user to enter a number and determine how often a number shows up
+ */
+import java.util.Scanner;
+public class RepeatedDigits {
+    public static void main(String[] args) {
+        while (true) {
+            Scanner input = new Scanner(System.in);
+            System.out.print("Enter a number: ");   //ask for user input
+            int number = input.nextInt();
+
+            int numberLen = String.valueOf(number).length(); //change from int to string to find the length of user input
+            int[] numberArray = new int[numberLen]; //declare and initialize an array
+
+            int sum = 0;
+            int count = 0;
+            while (number != 0) {               //the MAIN purpose is to just put the numbers into an array
+                int arrayNumber = number % 10; //get the last digit
+                numberArray[count] = arrayNumber; //add last digit to an array; the array will be backwards from user input
+                number /= 10;                   //decrease the number by 1 digit (it will keep on going until it hits 0)
+                count++;                        //increase count by 1 each loop
+            }
+            for (int i = 0; i < count; i++) {   //find the sum of the array
+                sum += numberArray[i];          //after the last while loop, the number will be 0, so this is necessary
+            }
+
+            if (sum != 0) {                     //run the loop if the sum does not equal to 0
+                System.out.print("Digits:       0 1 2 3 4 5 6 7 8 9");
+                System.out.println();
+                System.out.print("Occurrences:  ");
+                for (int j = 0; j < 10; j++) {  //display the occurrence for each digit
+                    System.out.print(Digits(numberArray, count, j) + " ");
+                }
+                System.out.println();
+            }
+            if (sum == 0) {                     //terminate the program if the sum is equal to 0
+                break;
+            }
+        }
+    }
+    public static int Digits(int[] numberArray, int count, int j) {
+        int occurrence = 0;
+        for (int i = 0; i < count; i++) {   //find the number of occurrences for each digit
+            if (j == numberArray[i]) {
+                occurrence++;
+            }
+        }
+        return occurrence;
+    }
+}

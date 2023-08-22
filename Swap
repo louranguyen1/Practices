@@ -1,0 +1,81 @@
+/* Programmer: Dan-Thu Nguyen
+Date: 8/30/2021
+Title: Task 2
+Description: Ask the user to input a string of numbers/letters and swap them. If it's an odd number, then the first element doesnt get swapped.
+ */
+import java.util.Scanner;
+public class Swap {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please input numbers to be swapped: ");
+        int number = input.nextInt();
+        swapDigitPairs(number);
+
+        Scanner input1 = new Scanner(System.in);
+        System.out.print("Please input a string to be swapped: ");
+        String letter = input1.nextLine();
+        swapLetterPairs(letter);
+    }
+
+    public static int swapDigitPairs(int number) {
+        int count = 0;
+        int numberLen = String.valueOf(number).length(); //change from int to string to find the length of user input
+
+        int[] numberArray = new int[numberLen]; //declare and initialize an array
+
+        while (number != 0) {
+            int arrayNumber = number % 10; //get the last digit
+            numberArray[count] = arrayNumber; //add last digit to an array; the array will be backwards from user input
+            number /= 10;
+            count++;
+        }
+
+        if (count % 2 == 0) {
+            for (int i = 0; i < count - 1; i += 2) { //swap
+                int temp = numberArray[i] + numberArray[i + 1];
+                numberArray[i] = temp - numberArray[i];
+                numberArray[i + 1] = temp - numberArray[i + 1];
+            }
+            for (int i = numberArray.length - 1; i >= 0; i--) { //reverse the array back to the original order with the numbers already swapped
+                System.out.print(numberArray[i]);
+            }
+        }
+
+        if (count % 2 != 0) {
+            for (int j = 0; j < count - 2; j += 2) { //swap
+                int temp = numberArray[j] + numberArray[j + 1];
+                numberArray[j] = temp - numberArray[j];
+                numberArray[j + 1] = temp - numberArray[j + 1];
+            }
+            for (int j = numberArray.length - 1; j >= 0; j--) { //reverses the array
+                System.out.print(numberArray[j]);
+            }
+        }
+        System.out.println();
+        return (number);
+    }
+
+    public static String swapLetterPairs(String letter) {
+        char[] letterName = letter.toCharArray(); //declare a char variable; letterName = char value
+        if (letter.length() % 2 == 0) {
+            for (int i = 0; i < letterName.length - 1; i += 2) { //swap
+                char temp = letterName[i];
+                letterName[i] = letterName[i + 1];
+                letterName[i + 1] = temp;
+            }
+            String letter1 = String.valueOf(letterName); //change letterName to string to match the original; letterName = string value
+            System.out.println(letter1);
+        }
+
+        if (letter.length() % 2 != 0) {
+            for (int j = 1; j < letterName.length - 1; j += 2) { //swap; changed j = 1 so it can exclude the first letter
+                char temp = letterName[j];
+                letterName[j] = letterName[j + 1];
+                letterName[j + 1] = temp;
+            }
+            String letter2 = String.valueOf(letterName);
+            System.out.println(letter2);
+        }
+        return letter;
+    }
+}

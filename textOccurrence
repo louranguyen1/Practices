@@ -1,0 +1,48 @@
+package com.company;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/* Programmer: Dan-Thu Nguyen
+Date: 11/15/2021
+Title: Occurrences in text file
+Description: Find the most repeated word in a text file
+ */
+ 
+public class textOccurrence {
+    public static void main(String[] args) throws Exception {
+        File file = new File(" ---enter your text path here --- ");  //copy and paste the path to "Text.txt" file
+        Scanner input = new Scanner(file);                          //the path to the file will be use as the parameter
+
+        ArrayList<String> list = new ArrayList<String>();          //declare an array list
+
+        while (input.hasNextLine()) {                               //to make sure that the file isnt empty
+            String[] sentence = input.nextLine().toLowerCase().split("([,.\\s]+)");     //change all words to lowercase and split the words by any punctuations and spaces
+            for (String s: sentence) {                              //loop through every sentences and add each word into the array list
+                list.add(s);
+            }
+        }
+
+        int[] count = new int[list.size()];                        //set it as an array and use the array list as the length
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = 0; j < list.size(); j++) {
+                if (list.get(i).matches(list.get(j))) {           //compare the words in the array
+                    count[i]++;                                     //add 1 to count if it matches
+                }
+            }
+        }
+
+        int max = 0;
+        String mostOcc = "";
+        for (int i = 0; i < list.size(); i++) {        //look for the one with the most occurrences
+            if (count[i] > max) {
+                max = count[i];                         //assign the number with the most occurrences to max
+                mostOcc = list.get(i);                 //assign the word that associated with it to mostOcc
+            }
+        }
+
+        System.out.println("Output: " +
+                "\nMost repeated word: " + mostOcc +
+                "\nNumber of occurrences: " + max);
+    }
+}

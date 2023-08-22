@@ -1,0 +1,94 @@
+package com.company;
+/* Programmer: Dan-Thu Nguyen
+Date: 11/24/2021
+Title: mainSort2
+Description: different type of sorts to sort strings arrays
+ */
+public class Main {
+    public static void main(String[] args) {
+        String[] array1 = {"De", "Cd", "Me", "Ge"};
+        System.out.print("Selection sort: \nBefore: ");
+        for (int i = 0; i < array1.length; i++) {
+            System.out.print(array1[i] + " ");
+        }
+        System.out.println();
+        System.out.print("After: ");
+        selectionSort(array1);
+        System.out.println();
+
+        String[] array2 = {"He", "Se", "De", "Be"};
+        System.out.print("Bubble sort: \nBefore: ");
+        for (int i = 0; i < array2.length; i++) {
+            System.out.print(array2[i] + " ");
+        }
+        System.out.println();
+        System.out.print("After: ");
+        bubbleSort(array2);
+        System.out.println();
+
+        String[] array3 = {"Ne", "Pe", "Ie", "Ze"};
+        System.out.print("Insertion sort: \nBefore: ");
+        for (int i = 0; i < array3.length; i++) {
+            System.out.print(array3[i] + " ");
+        }
+        System.out.println();
+        System.out.print("After: ");
+        insertionSort(array3);
+    }
+
+    public static void selectionSort(String[] array1) {
+        int size = array1.length;
+        for (int i = 0; i < size - 1; i++) {
+            int minimum = i;
+            String minimumString = array1[i];
+            for (int j = i + 1; j < size; j++) {
+                if (array1[j].compareTo(minimumString) < 0) {
+                    minimumString = array1[j];
+                    minimum = j;
+                }
+            }
+            if (minimum != i) {
+                String temp = array1[minimum];
+                array1[minimum] = array1[i];
+                array1[i] = temp;
+            }
+        }
+        for (int i = size - 1; i >= 0; i--) {
+            System.out.print(array1[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void bubbleSort(String[] array2) {
+        int size = array2.length;
+        for (int i = 0; i < size; i++) {
+            for (int j = i + 1; j < size; j++) {
+                if (array2[j].compareTo(array2[i]) < 0) {
+                    String temp = array2[i];
+                    array2[i] = array2[j];
+                    array2[j] = temp;
+                }
+            }
+        }
+        for (int i = 0; i < size; i++) {
+            System.out.print(array2[i] + " ");
+        }
+        System.out.println();    }
+
+    public static void insertionSort(String[] array3) {
+        int size = array3.length;
+        for (int i = 0; i < size; i++) {
+            for (int j = i + 1; j < size; j++) {
+                if (array3[i].compareTo(array3[j]) > 0) {
+                    String temp = array3[i];
+                    array3[i] = array3[j];
+                    array3[j] = temp;
+                }
+            }
+        }
+        for (int i = 0; i < size; i++) {
+            System.out.print(array3[i] + " ");
+        }
+        System.out.println();
+    }
+}

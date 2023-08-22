@@ -1,0 +1,85 @@
+package com.company;
+
+/* Programmer: Dan-Thu Nguyen
+Date: 10/26/2021
+Title: Search
+Description: search an array of numbers for a specific number and print out its index
+ */
+
+import java.util.Arrays;
+
+public class search {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 4, 6, 3, 5};
+        int number = 6;
+
+        SequentialSearch(array, number);
+        Arrays.sort(array);
+        BinarySearch(array, number);
+        int result = RecursiveBinarySearch(array, number, 0, 5);
+        if (result == -1) {
+            System.out.println("(Recursive Binary Search) The array index for the number " + number + " is: " + result + " (does not exist)");
+        }
+        else {
+            System.out.print("(Recursive Binary Search) The array index for the number " + number + " is: " + (result - 1));
+        }
+    }
+    public static void SequentialSearch(int[] array, int number) {
+        int index = -1;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == number) {
+                index = i;
+                break;
+            }
+        }
+        System.out.print("(Sequential Search) The array index for the number " + number + " is: ");
+        if (index == -1) {
+            System.out.println(index + " (does not exis)");
+        }
+        else {
+            System.out.println(index);
+        }
+    }
+    public static void BinarySearch(int[] sorted_array, int number) {
+        int min = 0;
+        int max = sorted_array.length - 1;
+        int index = -1;
+
+        System.out.print("(Binary Search) The array index for the number " + number + " is: ");
+        while (min <= max) {
+            int midNum = (min + max) / 2;
+            if (sorted_array[midNum] < number) {
+                min = midNum + 1;
+            }
+            else if (sorted_array[midNum] > number) {
+                max = midNum - 1;
+            }
+            else {
+                index = midNum;
+                System.out.println(index);
+                break;
+            }
+        }
+        if (index == -1) {
+            System.out.println(index + " (does not exis)");
+        }
+    }
+    public static int RecursiveBinarySearch(int[] sorted_array, int number, int min, int max) {
+        int index = -1;
+        int midNum = (min + max) / 2;
+
+        if (min <= max) {
+            if (sorted_array[midNum] == number) {
+                index = midNum + 1;
+                return index;
+            }
+            else if (sorted_array[midNum] > number) {
+                return RecursiveBinarySearch(sorted_array, number, min, midNum - 1);
+            }
+            else {
+                return RecursiveBinarySearch(sorted_array, number, midNum + 1, max);
+            }
+        }
+        return index;
+    }
+}
