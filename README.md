@@ -35,3 +35,33 @@
 <br>
 
 - NBATeam - create NBA team program (game)
+
+- DFSGraph - create a DFS graph
+- FA - creates a DFA that accepts string literals
+- FAChar - creates a DFA that accepts character literals
+- Graph - creates an adjacency matrix and displays the DFS path/neighbors
+- lexemeFile - takes in a text file and splits it into lexemes, identifies what they are, and if they have any syntax errors
+- lexemeInput - takes in user input and splits it into lexemes that are considered separate tokens.
+- mystery - creates a TreeNode and prints out specific node
+- AandB - finding odd numbers of a's and b's
+- separator - creates a program that separates letters and number
+- comments - takes user inputs and checks if they are single-line or multiline comments
+- name - accepts a string that has your name in it
+
+- practices:
+	- finds the max number in an array
+	- finds 2 elements from the array that add up to the target sum
+	- adds the 2 arrays together
+	- finds the missing number in the patterned array
+	- prints out the most repeated number in an array
+	- adds up all the selected numbers so you can get the highest number
+        	- for every number that you choose, a number next to it has to be skip
+        	- for every number that you choose, you can't skip more than 1 number
+
+- MinHeap - checks if the array is min heap and inserts another
+- treeNode - prints the nodes in decreasing order and lists the leaves from right to left
+- QueueStack - push and pop methods in queue stack
+- Trie - finds the longest common prefix
+- Graph - prints out a graph matrix
+- LinkedList - adding, reversing, checking, and deleting nodes in linked list
+- LinkedList2 - removing duplicates in a linked list
