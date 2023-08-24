@@ -35,6 +35,7 @@
 <br>
 
 - NBATeam - create NBA team program (game)
+<br>
 
 - DFSGraph - create a DFS graph
 - FA - creates a DFA that accepts string literals
@@ -47,6 +48,7 @@
 - separator - creates a program that separates letters and number
 - comments - takes user inputs and checks if they are single-line or multiline comments
 - name - accepts a string that has your name in it
+<br>
 
 - practices:
 	- finds the max number in an array
@@ -57,6 +59,7 @@
 	- adds up all the selected numbers so you can get the highest number
         	- for every number that you choose, a number next to it has to be skip
         	- for every number that you choose, you can't skip more than 1 number
+<br>
 
 - MinHeap - checks if the array is min heap and inserts another
 - treeNode - prints the nodes in decreasing order and lists the leaves from right to left
